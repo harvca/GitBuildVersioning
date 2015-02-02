@@ -1,0 +1,7 @@
+D:\Projects\Contract\GitBuildVersioning\GitBuildVersioning\GitBuildVersioning\bin\Debug\GitBuildVersioning.exe.config
+D:\Projects\Contract\GitBuildVersioning\GitBuildVersioning\bin\Debug\GitBuildVersioning.exe.config
+D:\Projects\Contract\GitBuildVersioning\GitBuildVersioning\bin\Debug\GitBuildVersioning.exe
+D:\Projects\Contract\GitBuildVersioning\GitBuildVersioning\bin\Debug\GitBuildVersioning.pdb
+D:\Projects\Contract\GitBuildVersioning\GitBuildVersioning\obj\Debug\GitBuildVersioning.csprojResolveAssemblyReference.cache
+D:\Projects\Contract\GitBuildVersioning\GitBuildVersioning\obj\Debug\GitBuildVersioning.exe
+D:\Projects\Contract\GitBuildVersioning\GitBuildVersioning\obj\Debug\GitBuildVersioning.pdb
