@@ -78,12 +78,13 @@ namespace GitBuildVersioning
 
                 if (newAssemblyVersion > oldAssemblyVersion)
                 {
-                    updatedAssemblyInfoData =  Regex.Replace(updatedAssemblyInfoData, "([0-9]+)([.][0-9]+[.][0-9]+[.][0-9]+)", newAssemblyVersion.ToString());
+                    string nav = string.Format("AssemblyVersion(\"{0}\")", newAssemblyVersion.ToString());
+                    updatedAssemblyInfoData = Regex.Replace(updatedAssemblyInfoData, "AssemblyVersion[(][\"]([0-9]+[.][0-9]+[.][0-9]+[.][0-9]+)[\"][)]", nav);
                 }
                 if (newAssemblyFileVersion != oldAssemblyFileVersion)
                 {
                     string nafv = string.Format("AssemblyFileVersion(\"{0}\")", newAssemblyFileVersion);
-                    updatedAssemblyInfoData =  Regex.Replace(updatedAssemblyInfoData, "AssemblyFileVersion[(][\"]([0-9]+[.][0-9]+[.][0-9]+[.][0-9]+)[\"][)]", nafv);
+                    updatedAssemblyInfoData = Regex.Replace(updatedAssemblyInfoData, "AssemblyFileVersion[(][\"]([0-9]+[.][0-9]+[.][0-9]+[.]\\w+)[\"][)]", nafv);
                 }
 
                 System.IO.File.WriteAllText(assemblyInfoPath, updatedAssemblyInfoData);
