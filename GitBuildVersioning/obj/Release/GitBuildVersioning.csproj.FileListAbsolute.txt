@@ -1,0 +1,5 @@
+D:\Projects\Contract\GitBuildVersioning\GitBuildVersioning\bin\Release\GitBuildVersioning.exe.config
+D:\Projects\Contract\GitBuildVersioning\GitBuildVersioning\bin\Release\GitBuildVersioning.exe
+D:\Projects\Contract\GitBuildVersioning\GitBuildVersioning\bin\Release\GitBuildVersioning.pdb
+D:\Projects\Contract\GitBuildVersioning\GitBuildVersioning\obj\Release\GitBuildVersioning.exe
+D:\Projects\Contract\GitBuildVersioning\GitBuildVersioning\obj\Release\GitBuildVersioning.pdb

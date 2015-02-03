@@ -21,6 +21,7 @@ namespace GitBuildVersioning
                 bool isRelease = buildType.ToLower() == "release" || buildType.ToLower() == "prod" || buildType.ToLower() == "uat" ? true : false;
                 string assemblyInfoPath = string.Format("{0}Properties\\AssemblyInfo.cs", projectPath);
                 string lastCommittedRevision = string.Empty;
+                
                
                 Log.Add("--------------------------------------------------------------------------------");
                 Log.Add("projectPath: " + projectPath);
@@ -64,10 +65,11 @@ namespace GitBuildVersioning
                 }
 
                 int build = oldAssemblyVersion.Build;
-
+                int revision = Tools.CalculateRevision(lastCommittedRevision);
+                Log.Add("calculatedRevision: " + revision);
                 if (isRelease == false) { build = oldAssemblyVersion.Build + 1; }
 
-                Version newAssemblyVersion = Version.Parse(string.Format("{0}.{1}.{2}.{3}", oldAssemblyVersion.Major, oldAssemblyVersion.Minor, build, oldAssemblyVersion.Revision));
+                Version newAssemblyVersion = Version.Parse(string.Format("{0}.{1}.{2}.{3}", oldAssemblyVersion.Major, oldAssemblyVersion.Minor, build, revision));
                 string newAssemblyFileVersion = string.Format(string.Format("{0}.{1}.{2}.{3}", oldAssemblyVersion.Major, oldAssemblyVersion.Minor, build, lastCommittedRevision));
                 Log.Add("newAssemblyVersion: " + newAssemblyVersion);
                 Log.Add("newAssemblyFileVersion: " + newAssemblyFileVersion);
