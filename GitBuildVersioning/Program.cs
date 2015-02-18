@@ -65,7 +65,7 @@ namespace GitBuildVersioning
                 }
 
                 int build = oldAssemblyVersion.Build;
-                int revision = Tools.CalculateRevision(lastCommittedRevision);
+                double revision = Tools.CalculateRevision(lastCommittedRevision);
                 Log.Add("calculatedRevision: " + revision);
                 if (isRelease == false) { build = oldAssemblyVersion.Build + 1; }
 
