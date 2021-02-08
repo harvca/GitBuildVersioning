@@ -1,17 +1,17 @@
 # GitBuildVersioning
+GitBuildVersioning helps versioning .NET Framework and .NET Core / .NET projects in Visual Studio
 
-This project requires Git for Windows to be installed
-
-Major and Minor versions are not changed.
-
-Build not changed on Release (Default, Prod or UAT)
-
-  Revision is changed to a calculated number based on Last commit revision Versioning example:
+  * Major and Minor versions are not changed.
+  * Build not changed on Release (Default, Prod or UAT).
+  * AssemblyVersion Revision is a calculated number based on Last commit revision.
+  * FileVersion Revision is the Last commit revision.
+  
+  Versioning example:
 
     .NET Framework:
 
-        AssemblyVersion("1.0.1.227") -> AssemblyVersion("1.0.2.227")
-        AssemblyFileVersion("1.0.1.75d3b51") -> AssemblyFileVersion("1.0.2.75d3b51")
+        AssemblyVersion("1.0.98.422")
+        AssemblyFileVersion("1.0.98.93e8238")
 
     .NET Core / .NET:
 
