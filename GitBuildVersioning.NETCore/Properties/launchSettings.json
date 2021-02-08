@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "GitBuildVersioning.NETCore": {
+      "commandName": "Project",
+      "commandLineArgs": "\"D:\\Users\\Cameron\\Source\\repos\\CJH.FuelPricingQLD\\CJH.FuelPricingQLD\" \"CJH.FuelPricingQLD\" \".csproj\" \"Debug\""
+    }
+  }
+}
