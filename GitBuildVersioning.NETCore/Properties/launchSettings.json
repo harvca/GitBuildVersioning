@@ -2,7 +2,7 @@
   "profiles": {
     "GitBuildVersioning.NETCore": {
       "commandName": "Project",
-      "commandLineArgs": "\"D:\\Users\\Cameron\\Source\\repos\\CJH.FuelPricingQLD\\CJH.FuelPricingQLD\" \"CJH.FuelPricingQLD\" \".csproj\" \"Debug\""
+      "commandLineArgs": "D:\\2146_DATA\\Projects\\inschool-v5\\InSchool.AuditSystem\\ InSchool.AuditSystem .csproj Debug"
     }
   }
 }

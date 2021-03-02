@@ -10,3 +10,10 @@ D:\Users\Cameron\Source\repos\Home\GitBuildVersioning\GitBuildVersioning\obj\Rel
 D:\Users\Cameron\Source\repos\Home\GitBuildVersioning\GitBuildVersioning\obj\Release\GitBuildVersioning.csproj.CoreCompileInputs.cache
 D:\Users\Cameron\Source\repos\Home\GitBuildVersioning\GitBuildVersioning\obj\Release\GitBuildVersioning.exe
 D:\Users\Cameron\Source\repos\Home\GitBuildVersioning\GitBuildVersioning\obj\Release\GitBuildVersioning.pdb
+D:\2146_DATA\Projects\GitBuildVersioning\GitBuildVersioning\bin\Release\GitBuildVersioning.exe.config
+D:\2146_DATA\Projects\GitBuildVersioning\GitBuildVersioning\bin\Release\GitBuildVersioning.exe
+D:\2146_DATA\Projects\GitBuildVersioning\GitBuildVersioning\bin\Release\GitBuildVersioning.pdb
+D:\2146_DATA\Projects\GitBuildVersioning\GitBuildVersioning\obj\Release\GitBuildVersioning.csprojAssemblyReference.cache
+D:\2146_DATA\Projects\GitBuildVersioning\GitBuildVersioning\obj\Release\GitBuildVersioning.csproj.CoreCompileInputs.cache
+D:\2146_DATA\Projects\GitBuildVersioning\GitBuildVersioning\obj\Release\GitBuildVersioning.exe
+D:\2146_DATA\Projects\GitBuildVersioning\GitBuildVersioning\obj\Release\GitBuildVersioning.pdb

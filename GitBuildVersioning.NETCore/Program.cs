@@ -57,7 +57,7 @@ namespace GitBuildVersioning.NETCore
                 Match asvRaw = Regex.Match(projectFileData, "[<]AssemblyVersion[>]([0-9]+[.][0-9]+[.][0-9]+[.][0-9]+)[<][/]AssemblyVersion[>]");
                 Match rxmVersion = Regex.Match(asvRaw.Value, "[0-9]+[.][0-9]+[.][0-9]+[.][0-9]+");
 
-                Match fvRaw = Regex.Match(projectFileData, "[<]FileVersion[>][0-9]+[.][0-9]+[.][0-9]+[.]\\w+[<][/]FileVersion[>]");
+                Match fvRaw = Regex.Match(projectFileData, "[<]InformationalVersion[>][0-9]+[.][0-9]+[.][0-9]+[.]\\w+[<][/]InformationalVersion[>]");
                 Match rxmFVersion = Regex.Match(fvRaw.Value, "[0-9]+[.][0-9]+[.][0-9]+[.]\\w+");
 
                 Match pvRaw = Regex.Match(projectFileData, "[<]Version[>][0-9]+[.][0-9]+[.][0-9]+[<][/]Version[>]");
@@ -114,8 +114,8 @@ namespace GitBuildVersioning.NETCore
                 }
                 if (newFileVersion != oldFileVersion)
                 {
-                    string nafv = $"<FileVersion>{newFileVersion}</FileVersion>";
-                    updatedProjectFileData = Regex.Replace(updatedProjectFileData, "[<]FileVersion[>][0-9]+[.][0-9]+[.][0-9]+[.]\\w+[<][/]FileVersion[>]", nafv);
+                    string nafv = $"<InformationalVersion>{newFileVersion}</InformationalVersion>";
+                    updatedProjectFileData = Regex.Replace(updatedProjectFileData, "[<]InformationalVersion[>][0-9]+[.][0-9]+[.][0-9]+[.]\\w+[<][/]InformationalVersion[>]", nafv);
                 }
                 if (newPackageVersion != oldPackageVersion)
                 {
