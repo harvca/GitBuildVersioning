@@ -78,7 +78,6 @@ namespace GitBuildVersioning.NETCore
                 GitProcessStartInfo.RedirectStandardOutput = true;
                 GitProcessStartInfo.FileName = string.Format("{0}\\git.exe", settings.GitPath);
                 GitProcessStartInfo.Arguments = string.Format("-C {0} describe --always", projectDir);
-                //git -C "D:\Users\Cameron\Source\Repos\Affinity Archive Agent" describe --always
 
                 using (System.Diagnostics.Process process = System.Diagnostics.Process.Start(GitProcessStartInfo))
                 {
@@ -97,11 +96,21 @@ namespace GitBuildVersioning.NETCore
                 Log.Add($"calculatedRevision: {revision}");
                 if (isRelease == false) { build = oldAssemblyVersion.Build + 1; }
 
+               
                 Version newAssemblyVersion = Version.Parse($"{oldAssemblyVersion.Major}.{oldAssemblyVersion.Minor}.{build}.{revision}");
+
+                string newVersion = $"{oldAssemblyVersion.Major}.{oldAssemblyVersion.Minor}.{build}.{revision}";
                 string newFileVersion = $"{oldAssemblyVersion.Major}.{oldAssemblyVersion.Minor}.{build}.{lastCommittedRevision}";
                 string newPackageVersion = $"{oldAssemblyVersion.Major}.{oldAssemblyVersion.Minor}.{build}";
 
-                Log.Add($"newAssemblyVersion: {newAssemblyVersion}");
+                if(projectName == "InSchool.WebApp")
+                {
+                    newVersion = $"{oldAssemblyVersion.Major}.{oldAssemblyVersion.Minor}.{build:000}.{revision}";
+                    newFileVersion = $"{oldAssemblyVersion.Major}.{oldAssemblyVersion.Minor}.{build:000}.{lastCommittedRevision}";
+                    newPackageVersion = $"{oldAssemblyVersion.Major}.{oldAssemblyVersion.Minor}.{build:000}";
+                }
+
+                Log.Add($"newAssemblyVersion: {newVersion}");
                 Log.Add($"newFileVersion: {newFileVersion}");
                 Log.Add($"newPackageVersion: {newPackageVersion}");
 
@@ -109,7 +118,8 @@ namespace GitBuildVersioning.NETCore
 
                 if (newAssemblyVersion > oldAssemblyVersion)
                 {
-                    string nav = $"<AssemblyVersion>{newAssemblyVersion}</AssemblyVersion>";
+                    string nav = $"<AssemblyVersion>{newVersion}</AssemblyVersion>";
+                  
                     updatedProjectFileData = Regex.Replace(updatedProjectFileData, "[<]AssemblyVersion[>]([0-9]+[.][0-9]+[.][0-9]+[.][0-9]+)[<][/]AssemblyVersion[>]", nav);
                 }
                 if (newFileVersion != oldFileVersion)
