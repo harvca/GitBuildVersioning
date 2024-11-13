@@ -1,4 +1,5 @@
 {
   "LogDIR": "C:\\Logs",
-  "GitPath": "C:\\Program Files\\Git\\bin"
+  "GitPath": "C:\\Program Files\\Git\\bin",
+  "Verbose":  false
 }

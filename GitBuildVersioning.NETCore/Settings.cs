@@ -10,11 +10,12 @@ namespace GitBuildVersioning.NETCore
     {
         public Settings()
         {
-
+            Verbose = false;
         }
 
         public string LogDIR { get; set; }
 
         public string GitPath { get; set; }
+        public bool Verbose { get; set; }
     }
 }

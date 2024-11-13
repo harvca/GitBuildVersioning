@@ -23,7 +23,7 @@ namespace GitBuildVersioning.NETCore
     }
     public class Log
     {
-        public static void Add(string message)
+        public static void Add(string message,bool verbose)
         {
             try
             {
@@ -31,7 +31,12 @@ namespace GitBuildVersioning.NETCore
                 {
                     System.IO.File.Create(AppSettings.LogFile).Close();
                 }
-                Console.WriteLine(message);
+
+                if (verbose == true)
+                {
+                    Console.WriteLine(message);
+                }
+
                 System.IO.File.AppendAllText(AppSettings.LogFile, message + Environment.NewLine);
             }
             catch { }

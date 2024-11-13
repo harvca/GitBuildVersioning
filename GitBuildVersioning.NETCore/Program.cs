@@ -42,16 +42,16 @@ namespace GitBuildVersioning.NETCore
                 
                 string lastCommittedRevision = string.Empty;
 
-
-                Log.Add("--------------------------------------------------------------------------------");
-                Log.Add($"ProjectDir: {projectDir}");
-                Log.Add($"ProjectName: {projectName}");
-                Log.Add($"ProjectExt: {projectExt}");
-                Log.Add($"ConfigurationName: {configurationName}");
-                Log.Add($"settingsPath: {settingsPath}");
-                Log.Add($"isRelease: {isRelease}");
-                Log.Add($"projectFilePath: {projectFilePath}");
-                Log.Add($"GitPath: {settings.GitPath}");
+               
+                    Log.Add("--------------------------------------------------------------------------------",settings.Verbose);
+                    Log.Add($"ProjectDir: {projectDir}", settings.Verbose);
+                    Log.Add($"ProjectName: {projectName}", settings.Verbose);
+                    Log.Add($"ProjectExt: {projectExt}", settings.Verbose);
+                    Log.Add($"ConfigurationName: {configurationName}", settings.Verbose);
+                    Log.Add($"settingsPath: {settingsPath}", settings.Verbose);
+                    Log.Add($"isRelease: {isRelease}", settings.Verbose);
+                    Log.Add($"projectFilePath: {projectFilePath}", settings.Verbose);
+                    Log.Add($"GitPath: {settings.GitPath}", settings.Verbose);
 
                 string projectFileData = System.IO.File.ReadAllText(projectFilePath);
                 Match asvRaw = Regex.Match(projectFileData, "[<]AssemblyVersion[>]([0-9]+[.][0-9]+[.][0-9]+[.][0-9]+)[<][/]AssemblyVersion[>]");
@@ -68,9 +68,9 @@ namespace GitBuildVersioning.NETCore
                 string oldFileVersion = rxmFVersion.Value;
                 string oldPackageVersion = rxmPVersion.Value;
 
-                Log.Add($"oldAssemblyVersion: {oldAssemblyVersion}");
-                Log.Add($"oldFileVersion: {oldFileVersion}");
-                Log.Add($"oldPackageVersion: {oldPackageVersion}");
+                Log.Add($"oldAssemblyVersion: {oldAssemblyVersion}", settings.Verbose);
+                Log.Add($"oldFileVersion: {oldFileVersion}", settings.Verbose);
+                Log.Add($"oldPackageVersion: {oldPackageVersion}", settings.Verbose);
 
                 System.Diagnostics.ProcessStartInfo GitProcessStartInfo = new System.Diagnostics.ProcessStartInfo();
                 GitProcessStartInfo.UseShellExecute = false;
@@ -87,13 +87,13 @@ namespace GitBuildVersioning.NETCore
                         string resRaw = sm.ReadToEnd();
                         string[] res = resRaw.Split(new string[] { "\n" }, StringSplitOptions.None);
                         lastCommittedRevision = res[0];
-                        Log.Add($"lastCommittedRevision: {lastCommittedRevision}");
+                        Log.Add($"lastCommittedRevision: {lastCommittedRevision}", settings.Verbose);
                     }
                 }
 
                 int build = oldAssemblyVersion.Build;
                 double revision = Tools.CalculateRevision(lastCommittedRevision);
-                Log.Add($"calculatedRevision: {revision}");
+                Log.Add($"calculatedRevision: {revision}", settings.Verbose);
                 if (isRelease == false) { build = oldAssemblyVersion.Build + 1; }
 
                
@@ -110,9 +110,9 @@ namespace GitBuildVersioning.NETCore
                     newPackageVersion = $"{oldAssemblyVersion.Major}.{oldAssemblyVersion.Minor}.{build:000}";
                 }
 
-                Log.Add($"newAssemblyVersion: {newVersion}");
-                Log.Add($"newFileVersion: {newFileVersion}");
-                Log.Add($"newPackageVersion: {newPackageVersion}");
+                Log.Add($"newAssemblyVersion: {newVersion}", settings.Verbose);
+                Log.Add($"newFileVersion: {newFileVersion}", settings.Verbose);
+                Log.Add($"newPackageVersion: {newPackageVersion}", settings.Verbose);
 
                 string updatedProjectFileData = projectFileData;
 
@@ -134,7 +134,7 @@ namespace GitBuildVersioning.NETCore
                 }
 
                 System.IO.File.WriteAllText(projectFilePath, updatedProjectFileData);
-                Log.Add("--------------------------------------------------------------------------------");
+                Log.Add("--------------------------------------------------------------------------------", settings.Verbose);
             }
             else
             {
